@@ -1,7 +1,9 @@
 """
-Instantiates the Discord Bot and Loads all available cogs from the cogs directory
+Instantiates the Discord Bot
+Holds bot functions
 """
 
+# Imports
 import json
 from discord.ext import commands
 import discord
@@ -13,10 +15,12 @@ import googlesheetservice as gss
 # Bot instance
 bot = commands.Bot(command_prefix='.', intents=discord.Intents.all())
 
+# Load bot configuration file
 with open("config.json", "r") as f:
     config = json.load(f)
 
 
+# On Ready Data
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user.name}")
